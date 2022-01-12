@@ -69,9 +69,14 @@ form.addEventListener('submit',function(e){
     e.preventDefault()
     checkEmail(email)
     checkPasswordsMatch(password,password2)
+    if(checkSpace(password2)){
+        checkPasswordsMatch(password,password2)
+    }
+
     if(checkSpace(username)){
         checkLenght(username,8,16)
     }
+
     if(checkSpace(password)){
         checkLenght(password,8,100)
     }
