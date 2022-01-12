@@ -24,11 +24,11 @@ function checkLenght(input,min,max){
         showError(input,`Vui lòng nhập dưới ${max} kí tự`)
         
     }
-    if(input.value.length <min){
+    if(input.value.length < min){
         showError(input,`Vui lòng nhập tối thiểu ${min} kí tự`)
         
     }
-    if(input.value.length<max &&input.value.length >min){
+    if(input.value.length< max && input.value.length > min){
         showSuccess(input)
     }
     
@@ -37,9 +37,11 @@ function checkLenght(input,min,max){
 function checkSpace(input){
     if(input.value.trim()===''){
         showError(input,`Vui lòng không để trống`)
+        return false
         
     } else{
         showSuccess(input)
+        return true
     }
 }
 // check email
@@ -65,9 +67,12 @@ function checkPasswordsMatch(input1,input2){
 // submit
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    checkLenght(username,8,16)
-    checkLenght(password,8,100)
-    checkSpace(username)
     checkEmail(email)
     checkPasswordsMatch(password,password2)
+    if(checkSpace(username)){
+        checkLenght(username,8,16)
+    }
+    if(checkSpace(password)){
+        checkLenght(password,8,100)
+    }
 })
