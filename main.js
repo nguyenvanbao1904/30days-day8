@@ -22,24 +22,25 @@ function showSuccess(input){
 function checkLenght(input,min,max){
     if(input.value.length > max){
         showError(input,`Vui lòng nhập dưới ${max} kí tự`)
-        return false
+        
     }
     if(input.value.length <min){
         showError(input,`Vui lòng nhập tối thiểu ${min} kí tự`)
-        return false
+        
     }
-    if(input.value.length<max &&input.value.length <min){
+    if(input.value.length<max &&input.value.length >min){
         showSuccess(input)
     }
-    return true
+    
 }
 // check space
 function checkSpace(input){
     if(input.value.trim()===''){
         showError(input,`Vui lòng không để trống`)
-        return false
+        
+    } else{
+        showSuccess(input)
     }
-    return true
 }
 // check email
 function checkEmail(input) {
