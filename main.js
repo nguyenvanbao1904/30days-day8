@@ -34,15 +34,15 @@ function checkLenght(input,min,max){
     
 }
 // check space
-function checkSpace(input){
-    if(input.value.trim()===''){
-        showError(input,`Vui lòng không để trống`)
-        return false
-        
-    } else{
-        showSuccess(input)
-        return true
-    }
+function checkSpace(input){ 
+        if(input.value.trim()===''){
+            showError(input,`Vui lòng không để trống`)
+            return false
+            
+        } else{
+            showSuccess(input)
+            return true
+        }
 }
 // check email
 function checkEmail(input) {
@@ -67,12 +67,13 @@ function checkPasswordsMatch(input1,input2){
 // submit
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    checkEmail(email)
-    checkPasswordsMatch(password,password2)
+    if(checkSpace(email)){
+        checkEmail(email)
+    }
     if(checkSpace(password2)){
         checkPasswordsMatch(password,password2)
     }
-
+    
     if(checkSpace(username)){
         checkLenght(username,8,16)
     }
